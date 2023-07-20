@@ -36,10 +36,12 @@ M.sym_map = {
 	c = "Find functions calling this function",
 	t = "Find this text string",
 	e = "Find this egrep pattern",
-	f = "Find this file",
+--	f = "Find this file",
 	i = "Find files #including this file",
-	d = "Find functions called by this function",
-	a = "Find places where this symbol is assigned a value",
+	-- d = "Find functions called by this function",
+	D = "Find functions called by this function",
+--	a = "Find places where this symbol is assigned a value",
+	v = "Find places where this symbol is assigned a value",
 	b = "Build database",
 }
 
@@ -67,10 +69,10 @@ M.default_keymaps = function()
 	map("n", "<leader>cc", M.get_cscope_prompt_cmd("c", "w"), { noremap = true, silent = true , desc=sym_map.c })
 	map("n", "<leader>ct", M.get_cscope_prompt_cmd("t", "w"), { noremap = true, silent = true , desc=sym_map.t })
 	map("n", "<leader>ce", M.get_cscope_prompt_cmd("e", "w"), { noremap = true, silent = true , desc=sym_map.e })
-	map("n", "<leader>cf", M.get_cscope_prompt_cmd("f", "f"), { noremap = true, silent = true , desc=sym_map.f })
+	-- map("n", "<leader>cf", M.get_cscope_prompt_cmd("f", "f"), { noremap = true, silent = true , desc=sym_map.f })
 	map("n", "<leader>ci", M.get_cscope_prompt_cmd("i", "f"), { noremap = true, silent = true , desc=sym_map.i })
-	map("n", "<leader>cd", M.get_cscope_prompt_cmd("d", "w"), { noremap = true, silent = true , desc=sym_map.d })
-	map("n", "<leader>ca", M.get_cscope_prompt_cmd("a", "w"), { noremap = true, silent = true , desc=sym_map.a })
+	map("n", "<leader>cD", M.get_cscope_prompt_cmd("d", "w"), { noremap = true, silent = true , desc=sym_map.D })
+	map("n", "<leader>cv", M.get_cscope_prompt_cmd("a", "w"), { noremap = true, silent = true , desc=sym_map.v })
 	map("n", "<leader>cb", "<cmd>Cscope build<cr>", { noremap = true, silent = true , desc=sym_map.b })
 end
 
