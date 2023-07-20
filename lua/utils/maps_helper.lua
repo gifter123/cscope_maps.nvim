@@ -36,7 +36,7 @@ M.sym_map = {
 	c = "Find functions calling this function",
 	t = "Find this text string",
 	e = "Find this egrep pattern",
---	f = "Find this file",
+	F = "Open this file",
 	i = "Find files #including this file",
 	-- d = "Find functions called by this function",
 	D = "Find functions called by this function",
@@ -62,14 +62,14 @@ M.default_keymaps = function()
 	local sym_map = M.sym_map
 	local ok, wk = pcall(require, "which-key")
 	if ok then
-		wk.register({["<leader>c"] = {name="+cscope"}}, { noremap = true, silent = true })
+		wk.register({["<leader>c"] = {name="+cscope/code"}}, { noremap = true, silent = true })
 	end
 	map("n", "<leader>cs", M.get_cscope_prompt_cmd("s", "w"), { noremap = true, silent = true , desc=sym_map.s })
 	map("n", "<leader>cg", M.get_cscope_prompt_cmd("g", "w"), { noremap = true, silent = true , desc=sym_map.g })
 	map("n", "<leader>cc", M.get_cscope_prompt_cmd("c", "w"), { noremap = true, silent = true , desc=sym_map.c })
 	map("n", "<leader>ct", M.get_cscope_prompt_cmd("t", "w"), { noremap = true, silent = true , desc=sym_map.t })
 	map("n", "<leader>ce", M.get_cscope_prompt_cmd("e", "w"), { noremap = true, silent = true , desc=sym_map.e })
-	-- map("n", "<leader>cf", M.get_cscope_prompt_cmd("f", "f"), { noremap = true, silent = true , desc=sym_map.f })
+	map("n", "<leader>cF", M.get_cscope_prompt_cmd("f", "f"), { noremap = true, silent = true , desc=sym_map.F })
 	map("n", "<leader>ci", M.get_cscope_prompt_cmd("i", "f"), { noremap = true, silent = true , desc=sym_map.i })
 	map("n", "<leader>cD", M.get_cscope_prompt_cmd("d", "w"), { noremap = true, silent = true , desc=sym_map.D })
 	map("n", "<leader>cv", M.get_cscope_prompt_cmd("a", "w"), { noremap = true, silent = true , desc=sym_map.v })
